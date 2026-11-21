@@ -24,7 +24,7 @@ CURP = ' aria-current="page"'
 SARCOM = "https://sms.ccga-gcac.ca/"   # placeholder target for the "SARCOM Login" button — confirm
 
 T = {  # UI strings
- "network": {"en": "CCGA · GCAC Network", "fr": "Réseau GCAC · CCGA"},
+ "network": {"en": 'CCGA · GCAC<span class="xl"> Network</span>', "fr": '<span class="xl">Réseau </span>GCAC · CCGA'},
  "emerg": {"en": "Marine emergency", "fr": "Urgence maritime"},
  "switch": {"en": "Français", "fr": "English"},
  "join": {"en": "Join", "fr": "Joindre"},
@@ -51,7 +51,7 @@ T = {  # UI strings
  "home": {"en": "Home", "fr": "Accueil"},
  "regional_home": {"en": "Overview", "fr": "Aperçu"},
  "in_section": {"en": "In this section", "fr": "Dans cette section"},
- "sarcom": {"en": "SARCOM Login", "fr": "Connexion SARCOM"},
+ "sarcom": {"en": 'SARCOM<span class="xl"> Login</span>', "fr": '<span class="xl">Connexion </span>SARCOM'},
 }
 
 # ---------------------------------------------------------------- paths
@@ -142,7 +142,7 @@ def render(sec, key, lang):
     topbar = f"""<div class="topbar"><div class="wrap topbar-in">
 {network}
 <p class="emerg">{LIFE}<b>{T['emerg'][lang]}:</b> <span>{emergency}</span></p>
-<div class="top-right"><a class="lang" href="{switch}" lang="{other}" hreflang="{other}">{T['switch'][lang]}</a>
+<div class="top-right"><a class="lang" href="{switch}" lang="{other}" hreflang="{other}" data-short="{other.upper()}">{T['switch'][lang]}</a>
 <a class="ico" href="{INSTAGRAM}" rel="noopener" aria-label="Instagram">{IG}</a>
 <a class="sarcom" href="{SARCOM}" rel="noopener">{LOCK}{T['sarcom'][lang]}</a></div>
 </div></div>"""
@@ -160,7 +160,7 @@ def render(sec, key, lang):
     brand_sub = f'<span class="brand-sub">{sec["name"][lang]}</span>' if not is_nat else ""
     header = f"""<header class="site-header"><div class="wrap header-in">
 <a class="brand" href="{rel(here, page_path(sec, 'index', lang))}"><img src="{crest}" alt="" width="40" height="62"><span class="brand-text">{site.replace('Auxiliary', '<br>Auxiliary').replace('auxiliaire', '<br>auxiliaire', 1)}{brand_sub}</span></a>
-<input type="checkbox" id="navtoggle" class="nav-toggle"><label for="navtoggle" class="menu-btn">{T['menu'][lang]}</label>
+<input type="checkbox" id="navtoggle" class="nav-toggle"><label for="navtoggle" class="menu-btn" aria-label="Menu">{T['menu'][lang]}</label>
 <nav class="menu" aria-label="{T['menu'][lang]}"><ul>{nav}</ul>
 <div class="cta"><a class="btn btn-ghost" href="{join_href}">{T['join'][lang]}</a><a class="btn" href="{don_href}">{T['donate'][lang]} →</a></div></nav>
 </div></header>"""
