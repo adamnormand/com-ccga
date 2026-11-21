@@ -21,6 +21,7 @@ YEAR = 2026
 INSTAGRAM = "https://www.instagram.com/ccga_aux_gcac/"
 CUR = ' aria-current="true"'
 CURP = ' aria-current="page"'
+SITE_BASE = "/com-ccga/"   # site root on GitHub Pages; change to "/" once a custom domain is set
 SARCOM = "https://sms.ccga-gcac.ca/"   # placeholder target for the "SARCOM Login" button — confirm
 
 T = {  # UI strings
@@ -257,9 +258,9 @@ def main():
 
 def render_404():
     return """<!DOCTYPE html><html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found · Page introuvable</title><link rel="icon" href="/favicon.svg"><style>body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#0E2238;color:#fff;text-align:center;padding:24px}a{color:#fff}h1{font-size:28px}p{color:#DCE4EC}</style></head>
-<body><div><h1>Page not found · Page introuvable</h1><p>Marine emergency / Urgence maritime : VHF 16 · *16 · 911</p><p><a href="/">Home</a> · <a href="/fr/">Accueil</a></p></div></body></html>
-"""
+<title>Page not found · Page introuvable</title><link rel="icon" href="{SITE_BASE}favicon.svg"><style>body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#0E2238;color:#fff;text-align:center;padding:24px}a{color:#fff}h1{font-size:28px}p{color:#DCE4EC}</style></head>
+<body><div><h1>Page not found · Page introuvable</h1><p>Marine emergency / Urgence maritime : VHF 16 · *16 · 911</p><p><a href="{SITE_BASE}">Home</a> · <a href="{SITE_BASE}fr/">Accueil</a></p></div></body></html>
+""".replace("{SITE_BASE}", SITE_BASE)
 
 if __name__ == "__main__":
     main()
